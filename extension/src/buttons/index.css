@@ -12,6 +12,7 @@
   display: block;
   opacity: 0.8;
   margin: auto;
+  min-width: 120px;
 }
 
 .swagger-auth-button {

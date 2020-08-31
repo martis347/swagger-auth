@@ -47,7 +47,7 @@
       <swagger-input
         label="Effective Urls"
         is-textarea
-        :placeholder="`https://localhost:3000*,
+        :placeholder="`*localhost*,
 https://dev2-hdmapi.azurewebsites.net/*`"
         tooltip-text="Optional comma-separated field indicating at what Urls in Swagger this template should be included. If left empty - it will be included everywhere."
         v-model="effectiveUrls"

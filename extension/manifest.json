@@ -1,6 +1,6 @@
 {
   "name": "Swagger Auth",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "manifest_version": 2,
   "description": "Improves Swagger to ease authentication.",
   "permissions": ["storage"],
