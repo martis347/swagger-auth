@@ -1,0 +1,53 @@
+.swagger-auth-buttons-container {
+  position: fixed;
+  flex-direction: column;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+}
+
+.swagger-auth-button span {
+  display: block;
+  font-size: 12px;
+  display: block;
+  opacity: 0.8;
+  margin: auto;
+}
+
+.swagger-auth-button {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid #49cc90;
+  background: white;
+  color: #49cc90;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: none;
+  z-index: 10000;
+  min-height: 50px;
+  padding: 4px 12px;
+  margin-top: 16px;
+}
+
+.swagger-auth-button.active {
+  background: #e2f7ed;
+}
+
+.swagger-auth-button.error {
+  border-color: red;
+  color: red;
+}
+
+.swagger-auth-button:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.swagger-auth-button-spinner {
+  display: block;
+  font-size: 12px;
+  display: block;
+  opacity: 0.8;
+  margin: 4px 8px;
+}
