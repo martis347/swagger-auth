@@ -15,11 +15,10 @@ This can be installed in Chromium based browsers (Chrome, new Microsoft Edge, Br
 
 ## How to install extension in Mozilla Firefox (~3 minutes)
 1. [Download Firefox extension from here](https://raw.githubusercontent.com/martis347/swagger-auth/master/Firefox%20Extension%201.0.1.xpi?token=ACN3YR2K2CXA6PMN2GTANT27JTPI2)
-2. Extract contents and remember where it's stored. You will need the folder that's inside the zip.
-3. Open extensions in Mozilla Firefox by navigating to `about:addons`
-4. Drag & Drop downloaded extension file `Firefox Extension.xpi` to the window
-5. Agree that you want to add the extension
-6. Great success!
+2. Open extensions in Mozilla Firefox by navigating to `about:addons`
+3. Drag & Drop downloaded extension file `Firefox Extension.xpi` to the window
+4. Agree that you want to add the extension
+5. Great success!
 
 
 ## How to use the extension
