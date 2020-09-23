@@ -1,4 +1,5 @@
-const storageKey = "swagger-storage";
+const requestsStorageKey = "swagger-storage";
+const quickNavigationStorageKey = "swagger-storage-quick-navigation";
 
 class ChromeExtensionStorage {
   async addItem(request) {
@@ -19,7 +20,7 @@ class ChromeExtensionStorage {
     return new Promise((resolve) => {
       chrome.storage.sync.set(
         {
-          [storageKey]: items,
+          [requestsStorageKey]: items,
         },
         resolve
       );
@@ -28,14 +29,35 @@ class ChromeExtensionStorage {
 
   getItems() {
     return new Promise((resolve) => {
-      chrome.storage.sync.get(storageKey, (result) => {
-        let value = result[storageKey];
+      chrome.storage.sync.get(requestsStorageKey, (result) => {
+        let value = result[requestsStorageKey];
         if (!value || !Array.isArray(value)) {
           value = [];
         }
 
         resolve(value);
       });
+    });
+  }
+
+  getIsQuickNavigationCollapsed() {
+    return new Promise((resolve) => {
+      chrome.storage.sync.get(quickNavigationStorageKey, (result) => {
+        const value = result[quickNavigationStorageKey];
+
+        resolve(!!value);
+      });
+    });
+  }
+
+  updateIsQuickNavigationCollapsed(state) {
+    return new Promise((resolve) => {
+      chrome.storage.sync.set(
+        {
+          [quickNavigationStorageKey]: state,
+        },
+        resolve
+      );
     });
   }
 }
@@ -56,12 +78,20 @@ class LocalStorage {
   }
 
   updateItems(items) {
-    localStorage.setItem(storageKey, JSON.stringify(items));
+    localStorage.setItem(requestsStorageKey, JSON.stringify(items));
   }
 
   getItems() {
-    const items = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    const items = JSON.parse(localStorage.getItem(requestsStorageKey) || "[]");
     return items;
+  }
+
+  getIsQuickNavigationCollapsed() {
+    localStorage.getItem(quickNavigationStorageKey) === "true";
+  }
+
+  updateIsQuickNavigationCollapsed(state) {
+    localStorage.setItem(quickNavigationStorageKey, `${state}`);
   }
 }
 

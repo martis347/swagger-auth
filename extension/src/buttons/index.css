@@ -62,6 +62,10 @@
   font-family: sans-serif;
 }
 
+.swagger-auth-quick-navigation-container.collapsed {
+  height: 6px;
+}
+
 .swagger-auth-quick-navigation-button {
   color: #49cc90;
   text-decoration: none;
@@ -71,4 +75,22 @@
   color: #278c5e;
   background: rgba(0, 0, 0, 0.02);
   text-decoration: none;
+}
+
+.swagger-auth-collapse-icon {
+  color: black;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.swagger-auth-quick-navigation-container.collapsed .swagger-auth-collapse-icon {
+  transform: rotate(180deg);
+}
+
+.swagger-auth-collapse-icon:hover {
+  background: rgba(0, 0, 0, 0.02);
 }

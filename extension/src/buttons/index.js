@@ -6,6 +6,7 @@ class ButtonsHandler {
 
   async initialize() {
     const requests = await this.storageProvider.getItems();
+    const isQuickNavigationCollapsed = await this.storageProvider.getIsQuickNavigationCollapsed();
     const matchingRequests = requests.filter(this.requestMatchesEffectiveUrl);
     this.requests = matchingRequests;
     this.domHandler.clearButtonsContainer();
@@ -16,7 +17,12 @@ class ButtonsHandler {
       });
     }
 
-    this.domHandler.displayQuickNavigation();
+    this.domHandler.displayQuickNavigation(
+      isQuickNavigationCollapsed,
+      (newState) => {
+        this.storageProvider.updateIsQuickNavigationCollapsed(newState);
+      }
+    );
   }
 
   requestMatchesEffectiveUrl(request) {
