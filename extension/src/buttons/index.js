@@ -15,6 +15,8 @@ class ButtonsHandler {
         clickHandler: (id) => this.handleAuthenticationButtonClick(id),
       });
     }
+
+    this.domHandler.displayQuickNavigation();
   }
 
   requestMatchesEffectiveUrl(request) {

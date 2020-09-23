@@ -52,3 +52,23 @@
   opacity: 0.8;
   margin: 4px 8px;
 }
+
+.swagger-auth-quick-navigation-container {
+  position: fixed;
+  flex-direction: column;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  font-family: sans-serif;
+}
+
+.swagger-auth-quick-navigation-button {
+  color: #49cc90;
+  text-decoration: none;
+}
+
+.swagger-auth-quick-navigation-button:hover {
+  color: #278c5e;
+  background: rgba(0, 0, 0, 0.02);
+  text-decoration: none;
+}

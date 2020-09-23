@@ -6,6 +6,9 @@ const spinnerClass = `${componentsPrefix}button-spinner`;
 const buttonIdPrefix = `${componentsPrefix}button-`;
 const buttonId = (id) => `${buttonIdPrefix}${id}`;
 
+const quickNavigationContainerClass = `${componentsPrefix}quick-navigation-container`;
+const quickNavigationButtonClass = `${componentsPrefix}quick-navigation-button`;
+
 class DomHandler {
   get buttonsContainer() {
     return document.querySelector(`.${buttonsContainerClass}`);
@@ -91,6 +94,45 @@ class DomHandler {
 
     const closeButton = document.querySelector("button.btn-done");
     closeButton.click();
+  }
+
+  getHeadersData() {
+    const headers = [...document.querySelectorAll("[id^=operations-tag-]")];
+    const headersData = headers.map((h) => ({
+      name: h.id.replace("operations-tag-", ""),
+      href: `#${h.id}`,
+    }));
+
+    return headersData;
+  }
+
+  wait(seconds) {
+    return new Promise((r) => setTimeout(r, seconds * 1000));
+  }
+
+  displayQuickNavigation() {
+    return new Promise(async (resolve) => {
+      let headersData = [];
+      let retriesCount = 0;
+      while (headersData.length === 0 && retriesCount < 10) {
+        await this.wait(1);
+        retriesCount++;
+        headersData = this.getHeadersData();
+      }
+
+      const headersComponents = headersData
+        .map(
+          (h) =>
+            `<a class="${quickNavigationButtonClass}" href="${h.href}">${h.name}</a>`
+        )
+        .join("\r\n");
+
+      document.body.insertAdjacentHTML(
+        "beforeend",
+        `<div class="${quickNavigationContainerClass}">${headersComponents}</div>`
+      );
+      resolve();
+    });
   }
 }
 
