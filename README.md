@@ -20,6 +20,16 @@ This can be installed in Chromium based browsers (Chrome, new Microsoft Edge, Br
 4. Agree that you want to add the extension
 5. Great success!
 
+## How to update extension to latest version in Google Chrome
+1. [Download Chrome extension from here](https://raw.githubusercontent.com/martis347/swagger-auth/master/Google%20Chrome%20Extension.zip?token=ACN3YR342SPHBIFSKHILZSS7JTPGK)
+2. Delete old plugin data which you extracted when installing it last time.
+3. Extract contents to the same folder as last time. That is important if you want to **keep your previously saved data**.
+4. Open extensions in Google Chrome by navigating to chrome://extensions
+5. Click **Reload** button for the Hyarchis Auth extension
+6. Great success!
+
+## How to update extension to latest version in Mozilla Firefox
+1. Steps are identical as when installing a new plugin in Mozilla Firefox
 
 ## How to use the extension
 1. Expand the list of extensions you have in Google Chrome and select "Swagger Auth"
