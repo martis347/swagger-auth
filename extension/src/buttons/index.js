@@ -46,6 +46,11 @@ class ButtonsHandler {
     }
 
     this.domHandler.changeButtonStatus(name, "loading");
+
+    if (!request.endpoint.includes('http')){
+      request.endpoint = `${window.location.origin}${request.endpoint}`
+    }
+    
     const authenticationData = await this.getAuthenticationData(request);
     if (authenticationData) {
       this.domHandler.authenticate(`${request.schema} ${authenticationData}`);
@@ -57,7 +62,7 @@ class ButtonsHandler {
 
   async getAuthenticationData({ body, endpoint, sessionAccessor }) {
     try {
-      const response = await fetch(`${window.location.origin}${endpoint}`, {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,3 +86,4 @@ class ButtonsHandler {
 }
 
 window.SwaggerButtonsHandler = ButtonsHandler;
+
